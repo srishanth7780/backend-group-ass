@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title description">
+  <title id="title">ClinicQ Health Centre SQLite entity relationship diagram</title>
+  <desc id="description">Doctors and rooms each have a one-to-many relationship with bookings. The diagram lists the columns, data types, and constraints for all three SQLite tables.</desc>
+  <defs>
+    <linearGradient id="navy" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0b2d62"/>
+      <stop offset="1" stop-color="#174f8b"/>
+    </linearGradient>
+    <linearGradient id="booking" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#593078"/>
+      <stop offset="1" stop-color="#754291"/>
+    </linearGradient>
+    <linearGradient id="surface" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f4f8fc"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#18324d" flood-opacity=".14"/>
+    </filter>
+    <marker id="many" markerWidth="12" markerHeight="14" refX="10" refY="7" orient="auto" markerUnits="strokeWidth">
+      <path d="M1 1L10 7L1 13M1 7H10" fill="none" stroke="#263746" stroke-width="1.5"/>
+    </marker>
+    <style>
+      text { font-family: "Segoe UI", Arial, sans-serif; fill: #17212b; }
+      .title { fill: #fff; font-size: 29px; font-weight: 700; }
+      .subtitle { fill: #102b56; font-size: 19px; font-weight: 600; }
+      .card-title { fill: #fff; font-size: 21px; font-weight: 700; }
+      .th { font-size: 15px; font-weight: 700; }
+      .cell { font-size: 15px; }
+      .small { font-size: 13px; }
+      .note { font-size: 14px; font-weight: 600; }
+      .section { fill: #17345a; font-size: 18px; font-weight: 700; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="900" fill="#f7f9fc"/>
+  <path d="M0 0H1200V125H0Z" fill="#edf3fb"/>
+  <rect x="175" y="18" width="850" height="54" rx="14" fill="#071d49"/>
+  <text class="title" x="600" y="54" text-anchor="middle">ClinicQ Health Centre - Consultation Room Management</text>
+  <rect x="330" y="82" width="540" height="36" rx="11" fill="#dce8ff"/>
+  <text class="subtitle" x="600" y="106" text-anchor="middle">Entity-Relationship Diagram (SQLite Database)</text>
+
+  <g filter="url(#shadow)">
+    <rect x="45" y="150" width="440" height="238" rx="13" fill="url(#surface)" stroke="#173d70" stroke-width="1.5"/>
+    <path d="M58 150H472A13 13 0 0 1 485 163V194H45V163A13 13 0 0 1 58 150Z" fill="url(#navy)"/>
+    <circle cx="211" cy="170" r="7" fill="#fff"/>
+    <circle cx="229" cy="170" r="7" fill="#fff"/>
+    <path d="M199 185Q200 177 211 177Q222 177 223 185M217 185Q218 177 229 177Q240 177 241 185" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+    <text class="card-title" x="278" y="178" text-anchor="middle">DOCTORS</text>
+    <rect x="46" y="194" width="438" height="34" fill="#eaf1f8"/>
+    <path d="M148 194V387M252 194V387" stroke="#9eacba" stroke-width="1"/>
+    <path d="M46 228H484M46 281H484M46 334H484" stroke="#aab5c1" stroke-width="1"/>
+    <rect x="46" y="229" width="438" height="51" fill="#d9ecfb"/>
+    <rect x="46" y="282" width="438" height="51" fill="#fff"/>
+    <rect x="46" y="335" width="438" height="51" fill="#f5f8fb"/>
+    <text class="th" x="59" y="216">Column</text>
+    <text class="th" x="160" y="216">Type</text>
+    <text class="th" x="264" y="216">Constraint</text>
+    <text class="cell" x="59" y="261">id</text>
+    <text class="cell" x="160" y="261">INTEGER</text>
+    <text class="cell" x="264" y="261">PK (Primary Key)</text>
+    <text class="cell" x="59" y="314">name</text>
+    <text class="cell" x="160" y="314">TEXT</text>
+    <text class="cell" x="264" y="314">NOT NULL</text>
+    <text class="cell" x="59" y="367">specialty</text>
+    <text class="cell" x="160" y="367">TEXT</text>
+    <text class="cell" x="264" y="367">NOT NULL</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="715" y="150" width="440" height="238" rx="13" fill="url(#surface)" stroke="#173d70" stroke-width="1.5"/>
+    <path d="M728 150H1142A13 13 0 0 1 1155 163V194H715V163A13 13 0 0 1 728 150Z" fill="url(#navy)"/>
+    <path d="M880 165H906V184H880ZM885 160H901V165H885ZM885 184V189M901 184V189" fill="none" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/>
+    <text class="card-title" x="962" y="178" text-anchor="middle">ROOMS</text>
+    <rect x="716" y="194" width="438" height="34" fill="#eaf1f8"/>
+    <path d="M818 194V387M922 194V387" stroke="#9eacba" stroke-width="1"/>
+    <path d="M716 228H1154M716 281H1154M716 334H1154" stroke="#aab5c1" stroke-width="1"/>
+    <rect x="716" y="229" width="438" height="51" fill="#d9ecfb"/>
+    <rect x="716" y="282" width="438" height="51" fill="#fff"/>
+    <rect x="716" y="335" width="438" height="51" fill="#f5f8fb"/>
+    <text class="th" x="729" y="216">Column</text>
+    <text class="th" x="830" y="216">Type</text>
+    <text class="th" x="934" y="216">Constraint</text>
+    <text class="cell" x="729" y="261">id</text>
+    <text class="cell" x="830" y="261">INTEGER</text>
+    <text class="cell" x="934" y="261">PK (Primary Key)</text>
+    <text class="cell" x="729" y="314">name</text>
+    <text class="cell" x="830" y="314">TEXT</text>
+    <text class="cell small" x="934" y="314">UNIQUE, NOT NULL, NOCASE</text>
+    <text class="cell" x="729" y="367">floor</text>
+    <text class="cell" x="830" y="367">INTEGER</text>
+    <text class="cell" x="934" y="367">NOT NULL</text>
+  </g>
+
+  <path d="M265 388V435H486V470" fill="none" stroke="#263746" stroke-width="2.5" marker-end="url(#many)"/>
+  <text x="245" y="410" font-size="16" font-weight="700">1</text>
+  <text x="460" y="455" font-size="16" font-weight="700">M</text>
+  <path d="M935 388V435H714V470" fill="none" stroke="#263746" stroke-width="2.5" marker-end="url(#many)"/>
+  <text x="945" y="410" font-size="16" font-weight="700">1</text>
+  <text x="723" y="455" font-size="16" font-weight="700">M</text>
+
+  <g>
+    <rect x="45" y="415" width="174" height="72" rx="12" fill="#e3f1ff" stroke="#83b9ee"/>
+    <text class="note" x="132" y="441" text-anchor="middle">One doctor can have</text>
+    <text class="note" x="132" y="462" text-anchor="middle">many bookings</text>
+    <rect x="981" y="415" width="174" height="72" rx="12" fill="#e3f1ff" stroke="#83b9ee"/>
+    <text class="note" x="1068" y="441" text-anchor="middle">One room can have</text>
+    <text class="note" x="1068" y="462" text-anchor="middle">many bookings</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="345" y="470" width="510" height="267" rx="13" fill="url(#surface)" stroke="#633982" stroke-width="1.5"/>
+    <path d="M358 470H842A13 13 0 0 1 855 483V514H345V483A13 13 0 0 1 358 470Z" fill="url(#booking)"/>
+    <rect x="510" y="482" width="21" height="21" rx="3" fill="none" stroke="#fff" stroke-width="2"/>
+    <path d="M515 478V487M526 478V487M511 490H530M515 495H520M524 495H528" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+    <text class="card-title" x="620" y="500" text-anchor="middle">BOOKINGS</text>
+    <rect x="346" y="514" width="508" height="33" fill="#eee7f4"/>
+    <path d="M470 514V736M582 514V736M695 514V736" stroke="#a99bb2" stroke-width="1"/>
+    <path d="M346 547H854M346 585H854M346 623H854M346 661H854M346 699H854" stroke="#aaa1b0" stroke-width="1"/>
+    <rect x="346" y="548" width="508" height="36" fill="#dceefa"/>
+    <rect x="346" y="586" width="508" height="36" fill="#fff"/>
+    <rect x="346" y="624" width="508" height="36" fill="#fff8dc"/>
+    <rect x="346" y="662" width="508" height="36" fill="#fff8dc"/>
+    <rect x="346" y="700" width="508" height="36" fill="#f5f8fb"/>
+    <text class="th" x="359" y="536">Column</text>
+    <text class="th" x="483" y="536">Type</text>
+    <text class="th" x="595" y="536">Constraint</text>
+    <text class="cell" x="359" y="573">id</text>
+    <text class="cell" x="483" y="573">INTEGER</text>
+    <text class="cell small" x="595" y="573">PK (Primary Key)</text>
+    <text class="cell" x="359" y="611">doctor_id</text>
+    <text class="cell" x="483" y="611">INTEGER</text>
+    <text class="cell small" x="595" y="611">FK -&gt; doctors(id), CASCADE</text>
+    <text class="cell" x="359" y="649">room_id</text>
+    <text class="cell" x="483" y="649">INTEGER</text>
+    <text class="cell small" x="595" y="649">FK -&gt; rooms(id), CASCADE</text>
+    <text class="cell" x="359" y="687">booking_date</text>
+    <text class="cell" x="483" y="687">TEXT</text>
+    <text class="cell" x="595" y="687">NOT NULL</text>
+    <text class="cell" x="359" y="725">booking_hour</text>
+    <text class="cell" x="483" y="725">TEXT</text>
+    <text class="cell" x="595" y="725">NOT NULL</text>
+  </g>
+
+  <g>
+    <rect x="45" y="774" width="340" height="101" rx="12" fill="#fff" stroke="#7d94ad" stroke-width="1.5"/>
+    <path d="M57 774H373A12 12 0 0 1 385 786V801H45V786A12 12 0 0 1 57 774Z" fill="url(#navy)"/>
+    <text x="64" y="794" fill="#fff" font-size="16" font-weight="700">Legend</text>
+    <rect x="61" y="813" width="43" height="24" rx="5" fill="#d9ecfb"/>
+    <text x="82" y="830" text-anchor="middle" font-size="13" font-weight="700">PK</text>
+    <text class="small" x="114" y="829">Primary Key - identifies a row</text>
+    <rect x="61" y="842" width="43" height="24" rx="5" fill="#fff0bd"/>
+    <text x="82" y="859" text-anchor="middle" font-size="13" font-weight="700">FK</text>
+    <text class="small" x="114" y="858">Foreign Key - references a table</text>
+  </g>
+
+  <g>
+    <rect x="413" y="774" width="742" height="101" rx="12" fill="#e7f2ff" stroke="#6b9ed2" stroke-width="1.5"/>
+    <text class="section" x="438" y="804">Relationship Summary</text>
+    <text class="cell" x="440" y="832">Doctors (1) -&gt; (M) Bookings</text>
+    <text class="cell" x="440" y="858">Rooms (1) -&gt; (M) Bookings</text>
+    <text class="small" x="830" y="832">Foreign keys use ON DELETE CASCADE.</text>
+    <text class="small" x="830" y="858">Room names are unique, case-insensitively.</text>
+  </g>
+</svg>

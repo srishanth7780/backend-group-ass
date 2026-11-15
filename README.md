@@ -21,12 +21,18 @@ ClinicQ Health Centre is a backend-only Consultation Room Management API designe
 - JavaScript (CommonJS)
 - Postman
 
+## Database ER diagram
+
+![ClinicQ SQLite entity-relationship diagram](./docs/clinicq-er-diagram.svg)
+
 ## 4. Folder structure
 
 ```text
 clinicq-health-centre/
 ├── data/
 │   └── clinicq.db
+├── docs/
+│   └── clinicq-er-diagram.svg
 ├── postman/
 │   └── clinicq-centre.postman_collection.json
 ├── src/
