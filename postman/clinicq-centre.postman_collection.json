@@ -1,0 +1,275 @@
+{
+  "info": {
+    "_postman_id": "c7a8d9e0-1b2c-3d4e-5f6a-7b8c9d0e1f2a",
+    "name": "ClinicQ Health Centre API",
+    "description": "Organized requests for server health, rooms, doctors, bookings (JOIN), validation & search, and Twist Rule (No duplicate room names).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "01 - Server and Health",
+      "item": [
+        {
+          "name": "GET /health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["health"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "02 - Rooms (CRUD)",
+      "item": [
+        {
+          "name": "GET /rooms (All Rooms)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/rooms",
+              "host": ["{{baseUrl}}"],
+              "path": ["rooms"]
+            }
+          }
+        },
+        {
+          "name": "GET /rooms/:id (Single Room)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/rooms/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["rooms", "1"]
+            }
+          }
+        },
+        {
+          "name": "POST /rooms (Create Room 4)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Room 4\",\n  \"floor\": 2\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/rooms",
+              "host": ["{{baseUrl}}"],
+              "path": ["rooms"]
+            }
+          }
+        },
+        {
+          "name": "PUT /rooms/:id (Update Room 2)",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Room 2\",\n  \"floor\": 3\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/rooms/2",
+              "host": ["{{baseUrl}}"],
+              "path": ["rooms", "2"]
+            }
+          }
+        },
+        {
+          "name": "DELETE /rooms/:id (Delete Room 4)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/rooms/4",
+              "host": ["{{baseUrl}}"],
+              "path": ["rooms", "4"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "03 - Doctors",
+      "item": [
+        {
+          "name": "GET /doctors",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/doctors",
+              "host": ["{{baseUrl}}"],
+              "path": ["doctors"]
+            }
+          }
+        },
+        {
+          "name": "POST /doctors",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Dr. Neha Kapoor\",\n  \"specialty\": \"Dermatology\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/doctors",
+              "host": ["{{baseUrl}}"],
+              "path": ["doctors"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "04 - Bookings (JOIN & Conflict Prevention)",
+      "item": [
+        {
+          "name": "GET /bookings (JOIN Doctor & Room Names)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/bookings",
+              "host": ["{{baseUrl}}"],
+              "path": ["bookings"]
+            }
+          }
+        },
+        {
+          "name": "POST /bookings (Valid Booking)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"doctor_id\": 3,\n  \"room_id\": 1,\n  \"booking_date\": \"2026-11-16\",\n  \"booking_hour\": \"14:00\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/bookings",
+              "host": ["{{baseUrl}}"],
+              "path": ["bookings"]
+            }
+          }
+        },
+        {
+          "name": "POST /bookings (Same Room & Hour Conflict -> 409)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"doctor_id\": 2,\n  \"room_id\": 1,\n  \"booking_date\": \"2026-11-16\",\n  \"booking_hour\": \"09:00\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/bookings",
+              "host": ["{{baseUrl}}"],
+              "path": ["bookings"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "05 - Validation and Search",
+      "item": [
+        {
+          "name": "GET /rooms?floor=1 (Search by Floor)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/rooms?floor=1",
+              "host": ["{{baseUrl}}"],
+              "path": ["rooms"],
+              "query": [{ "key": "floor", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "POST /rooms (Missing Floor -> 400 Bad Request)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Room 9\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/rooms",
+              "host": ["{{baseUrl}}"],
+              "path": ["rooms"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "06 - Twist Rule (No Duplicate Room Names)",
+      "item": [
+        {
+          "name": "Test 1: Add Room 3 -> 201 Created",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Room 3\",\n  \"floor\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/rooms",
+              "host": ["{{baseUrl}}"],
+              "path": ["rooms"]
+            }
+          }
+        },
+        {
+          "name": "Test 2: Add 'room 3' -> 409 Conflict",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"room 3\",\n  \"floor\": 2\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/rooms",
+              "host": ["{{baseUrl}}"],
+              "path": ["rooms"]
+            }
+          }
+        },
+        {
+          "name": "Test 3: Rename Room 1 to 'room 3' -> 409 Conflict",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"room 3\",\n  \"floor\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/rooms/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["rooms", "1"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    }
+  ]
+}
