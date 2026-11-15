@@ -72,6 +72,10 @@ clinicq-health-centre/
    npm start
    ```
    The server runs at `http://localhost:3000`.
+5. Run the API tests:
+   ```bash
+   npm test
+   ```
 
 ## 6. API endpoints
 
